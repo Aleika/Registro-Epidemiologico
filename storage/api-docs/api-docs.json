@@ -89,7 +89,7 @@
                     "módulo transparência"
                 ],
                 "summary": "Consulta filtrada",
-                "description": "Retorna uma lista com a quantidade de pacientes cadastrados filtraando por qualquer combinação de Doença, UF, Município, Faixa etária e Sexo, conforme\n        informado na critério de filtro da API",
+                "description": "Retorna uma lista com a quantidade de pacientes cadastrados filtrando por qualquer combinação de Doença, UF, Município, Faixa etária e Sexo, conforme\n        informado na critério de filtro da API. O valor do sexo deve ser 'F' ou 'M'.",
                 "operationId": "consultaFiltrada",
                 "parameters": [
                     {
@@ -199,7 +199,7 @@
                     "módulo transparência"
                 ],
                 "summary": "Consulta Ordenada",
-                "description": "Retorna uma lista com a quantidade de pacientes cadastrados filtrando por qualquer combinação de Doença, UF, Município, Faixa etária e Sexo, conforme\n    informado no critério de filtro da API.",
+                "description": "Retorna uma lista com a quantidade de pacientes cadastrados filtrando por qualquer combinação de Doença, UF, Município, Faixa etária e Sexo, conforme\n    informado no critério de filtro da API. Os parâmetros doenca_ordem, uf_ordem, municipio_ordem, faixa_etaria_ordem e sexo_ordem dever ser 'ASC' ou 'DESC'. Caso a ordem seja nula, ou seja\n    não for informada para algum dos parâmetros, a consulta não irá ordenar pelo parâmetro não informado. O valor do sexo deve ser 'F' ou 'M'.",
                 "operationId": "consultaOrdenada",
                 "parameters": [
                     {
@@ -544,6 +544,156 @@
                                         },
                                         "sexo": {
                                             "type": "char",
+                                            "example": "F"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/modulo_transparencia/ordenada/export-csv?doenca={doenca_id}&doencaordem={doenca_ordem}&uf={ud_id}&ufordem={uf_ordem}&municipio={municipio_id}&municipioordem= {municipio_ordem}\n    &faixaetaria={faixa_etaria_id}&$faixaetariaordem={$faixa_etaria_ordem}&sexo={sexo}&sexoordem={sexo_ordem}": {
+            "get": {
+                "tags": [
+                    "módulo transparência"
+                ],
+                "summary": "Consulta Ordenada - CSV",
+                "description": "Retorna um .csv com a quantidade de pacientes cadastrados filtrando por qualquer combinação de Doença, UF, Município, Faixa etária e Sexo, conforme\n    informado no critério de filtro da API. Os parâmetros doenca_ordem, uf_ordem, municipio_ordem, faixa_etaria_ordem e sexo_ordem dever ser 'ASC' ou 'DESC'. Caso a ordem seja nula, ou seja\n    não for informada para algum dos parâmetros, a consulta não irá ordenar pelo parâmetro não informado. O valor do sexo deve ser 'F' ou 'M'.",
+                "operationId": "exportIntoCSV",
+                "parameters": [
+                    {
+                        "name": "doenca_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "uf_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "municipio_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "faixa_etaria_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "sexo",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "char"
+                        }
+                    },
+                    {
+                        "name": "doenca_ordem",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "uf_ordem",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "municipio_ordem",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "faixa_etaria_ordem",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sexo_ordem",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operação realizada com sucesso",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "properties": {
+                                        "quantidade_pacientes": {
+                                            "type": "integer",
+                                            "example": "4"
+                                        },
+                                        "doenca": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "nome_doenca": {
+                                            "type": "string",
+                                            "example": "Esclerose Lateral Amiotrófica - ELA"
+                                        },
+                                        "UF": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "nome_uf": {
+                                            "type": "string",
+                                            "example": "Rio Grande do Norte"
+                                        },
+                                        "municipio": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "nome_municipio": {
+                                            "type": "string",
+                                            "example": "Natal"
+                                        },
+                                        "faixa_etaria": {
+                                            "type": "integer",
+                                            "example": "4"
+                                        },
+                                        "idade_minima_da_faixa": {
+                                            "type": "integer",
+                                            "example": "36"
+                                        },
+                                        "classe_faixa_etaria": {
+                                            "type": "string",
+                                            "example": "36-50"
+                                        },
+                                        "sexo": {
+                                            "type": "string",
                                             "example": "F"
                                         }
                                     },
@@ -3829,7 +3979,7 @@
         "/auth/login": {
             "post": {
                 "tags": [
-                    "autenticacao"
+                    "autenticação"
                 ],
                 "summary": "Registra o login do usuário",
                 "description": "Faz o login do autenticado para que ele possa ter acesso às funcionalidades que precisam de autenticação. Retorna os dados de acesso.",
@@ -3890,18 +4040,13 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
+                }
             }
         },
         "/auth/register": {
             "post": {
                 "tags": [
-                    "autenticacao"
+                    "autenticação"
                 ],
                 "summary": "Cadastra novo usuário",
                 "description": "Realiza o cadastro do usuário e retorna os dados cadastrados.",
@@ -3985,7 +4130,7 @@
         "/auth/logout": {
             "post": {
                 "tags": [
-                    "autenticacao"
+                    "autenticação"
                 ],
                 "summary": "Faz o logout do usuário",
                 "description": "Realiza o logout do usuário.",
@@ -4018,7 +4163,7 @@
         "/auth/profle": {
             "get": {
                 "tags": [
-                    "autenticacao"
+                    "autenticação"
                 ],
                 "summary": "Retorna usuário.",
                 "description": "Retorna os dados do susuário logado.",
@@ -4067,7 +4212,7 @@
         "/auth/refresh": {
             "post": {
                 "tags": [
-                    "autenticacao"
+                    "autenticação"
                 ],
                 "summary": "Atualiza token",
                 "description": "Atualiza os dados de acesso do usuário logado. Retorna os dados de acesso.",

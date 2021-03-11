@@ -91,6 +91,7 @@ Route::group([
 Route::prefix('/modulo_transparencia')->group( function (){
     Route::get('/', [ConsultasController::class, 'consultaAgregada']);
     Route::get('/ordenada', [ConsultasController::class, 'consultaOrdenada']);
+    Route::get('/ordenada/export-csv', [ConsultasController::class, 'exportIntoCSV']);
     Route::get('/filtrada', [ConsultasController::class, 'consultaFiltrada']);
     Route::prefix('/agregado/doenca')->group( function () {
         Route::get('/', [ConsultasController::class, 'agregadoDoenca']);

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Exports;
+use Excel;
 
 class ConsultasController extends Controller
 {
@@ -53,8 +55,8 @@ class ConsultasController extends Controller
      *     path="/modulo_transparencia/filtrada?doenca={doenca_id}&uf={uf_id}&municipio={municipio_id}&faixaetaria={faixa_etaria_id}&sexo={sexo}",
      *     tags={"módulo transparência"},
      *     summary="Consulta filtrada",
-     *     description="Retorna uma lista com a quantidade de pacientes cadastrados filtraando por qualquer combinação de Doença, UF, Município, Faixa etária e Sexo, conforme
-        informado na critério de filtro da API",
+     *     description="Retorna uma lista com a quantidade de pacientes cadastrados filtrando por qualquer combinação de Doença, UF, Município, Faixa etária e Sexo, conforme
+        informado na critério de filtro da API. O valor do sexo deve ser 'F' ou 'M'.",
      *     operationId="consultaFiltrada",
      *    @OA\Parameter(
      *         name="doenca_id",
@@ -144,7 +146,8 @@ class ConsultasController extends Controller
      *     tags={"módulo transparência"},
      *     summary="Consulta Ordenada",
      *     description="Retorna uma lista com a quantidade de pacientes cadastrados filtrando por qualquer combinação de Doença, UF, Município, Faixa etária e Sexo, conforme
-    informado no critério de filtro da API.",
+    informado no critério de filtro da API. Os parâmetros doenca_ordem, uf_ordem, municipio_ordem, faixa_etaria_ordem e sexo_ordem dever ser 'ASC' ou 'DESC'. Caso a ordem seja nula, ou seja
+    não for informada para algum dos parâmetros, a consulta não irá ordenar pelo parâmetro não informado. O valor do sexo deve ser 'F' ou 'M'.",
      *     operationId="consultaOrdenada",
      *    @OA\Parameter(
      *         name="doenca_id",
@@ -517,5 +520,133 @@ class ConsultasController extends Controller
 
     public function groupBy(){
         return  ' group by (d.id, ufs.id, mu.id, fe.id, pe.sexo) ';
+    }
+
+    /**
+     * @OA\Get(
+     *     path="/modulo_transparencia/ordenada/export-csv?doenca={doenca_id}&doencaordem={doenca_ordem}&uf={ud_id}&ufordem={uf_ordem}&municipio={municipio_id}&municipioordem= {municipio_ordem}
+    &faixaetaria={faixa_etaria_id}&$faixaetariaordem={$faixa_etaria_ordem}&sexo={sexo}&sexoordem={sexo_ordem}",
+     *     tags={"módulo transparência"},
+     *     summary="Consulta Ordenada - CSV",
+     *     description="Retorna um .csv com a quantidade de pacientes cadastrados filtrando por qualquer combinação de Doença, UF, Município, Faixa etária e Sexo, conforme
+    informado no critério de filtro da API. Os parâmetros doenca_ordem, uf_ordem, municipio_ordem, faixa_etaria_ordem e sexo_ordem dever ser 'ASC' ou 'DESC'. Caso a ordem seja nula, ou seja
+    não for informada para algum dos parâmetros, a consulta não irá ordenar pelo parâmetro não informado. O valor do sexo deve ser 'F' ou 'M'.",
+     *     operationId="exportIntoCSV",
+     *    @OA\Parameter(
+     *         name="doenca_id",
+     *         in="path",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="int"
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="uf_id",
+     *         in="path",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="int"
+     *         )
+     *     ),
+     *    @OA\Parameter(
+     *         name="municipio_id",
+     *         in="path",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="int"
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="faixa_etaria_id",
+     *         in="path",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="int"
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="sexo",
+     *         in="path",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="char"
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="doenca_ordem",
+     *         in="path",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="uf_ordem",
+     *         in="path",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     *    @OA\Parameter(
+     *         name="municipio_ordem",
+     *         in="path",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="faixa_etaria_ordem",
+     *         in="path",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="sexo_ordem",
+     *         in="path",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     * @OA\Response(
+     *          response=200,
+     *          description="Operação realizada com sucesso",
+     *          @OA\MediaType(
+     *              mediaType="text/plain",
+     *              @OA\Schema(
+     *                  @OA\Property(property="quantidade_pacientes",type="integer",example="4"),
+     *                  @OA\Property(property="doenca",type="integer",example="1"),
+     *                  @OA\Property(property="nome_doenca",type="string",example="Esclerose Lateral Amiotrófica - ELA"),
+     *                  @OA\Property(property="UF",type="integer",example="1"),
+     *                  @OA\Property(property="nome_uf",type="string",example="Rio Grande do Norte"),
+     *                  @OA\Property(property="municipio",type="integer",example="1"),
+     *                  @OA\Property(property="nome_municipio",type="string",example="Natal"),
+     *                  @OA\Property(property="faixa_etaria",type="integer",example="4"),
+     *                  @OA\Property(property="idade_minima_da_faixa",type="integer",example="36"),
+     *                  @OA\Property(property="classe_faixa_etaria",type="string",example="36-50"),
+     *                  @OA\Property(property="sexo",type="string",example="F"),
+     *              ),
+     *          )
+     *     )
+     * )
+     */
+    public function exportIntoCSV(Request $request){
+        $doenca = $request->input('doenca');
+        $uf = $request->input('uf');
+        $municipio = $request->input('municipio');
+        $faixa_etaria = $request->input('faixaetaria');
+        $sexo = $request->input('sexo');
+
+        $doenca_ordem = $request->input('doencaordem');
+        $uf_ordem = $request->input('ufordem');
+        $municipio_ordem = $request->input('municipioordem');
+        $faixa_etaria_ordem = $request->input('faixaetariaordem');
+        $sexo_ordem = $request->input('sexoordem');
+
+        return Excel::download(new Exports\ConsultaExport($doenca, $doenca_ordem, $uf, $uf_ordem,$municipio, $municipio_ordem, $faixa_etaria, $faixa_etaria_ordem, $sexo, $sexo_ordem), 'consulta_ordenada.csv');
     }
 }

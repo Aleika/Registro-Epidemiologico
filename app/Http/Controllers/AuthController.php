@@ -16,11 +16,10 @@ class AuthController extends Controller
     /**
      * @OA\Post(
      *     path="/auth/login",
-     *     tags={"autenticacao"},
+     *     tags={"autenticação"},
      *     summary="Registra o login do usuário",
      *     description="Faz o login do autenticado para que ele possa ter acesso às funcionalidades que precisam de autenticação. Retorna os dados de acesso.",
      *     operationId="login",
-     *     security={{"bearerAuth":{}}},
      *     @OA\RequestBody(
      *         description="Registra o login do usuário",
      *         required=true,
@@ -82,7 +81,7 @@ class AuthController extends Controller
     /**
      * @OA\Post(
      *     path="/auth/register",
-     *     tags={"autenticacao"},
+     *     tags={"autenticação"},
      *     summary="Cadastra novo usuário",
      *     description="Realiza o cadastro do usuário e retorna os dados cadastrados.",
      *     operationId="register",
@@ -146,7 +145,7 @@ class AuthController extends Controller
     /**
      * @OA\Post(
      *     path="/auth/logout",
-     *     tags={"autenticacao"},
+     *     tags={"autenticação"},
      *     summary="Faz o logout do usuário",
      *     description="Realiza o logout do usuário.",
      *     operationId="logout",
@@ -173,7 +172,7 @@ class AuthController extends Controller
     /**
      * @OA\Get(
      *     path="/auth/profle",
-     *     tags={"autenticacao"},
+     *     tags={"autenticação"},
      *     summary="Retorna usuário.",
      *     description="Retorna os dados do susuário logado.",
      *     operationId="profile",
@@ -201,7 +200,7 @@ class AuthController extends Controller
     /**
      * @OA\Post(
      *     path="/auth/refresh",
-     *     tags={"autenticacao"},
+     *     tags={"autenticação"},
      *     summary="Atualiza token",
      *     description="Atualiza os dados de acesso do usuário logado. Retorna os dados de acesso.",
      *     operationId="refresh",
