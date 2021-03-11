@@ -20,16 +20,16 @@ Observações:
 - Caso seu SO seja Windows: para ativar o Composer é necessário executar o Prompt de Comando como administrado e rodar o comando `php composer.phar`.
 
 ## Instalação do banco de dados (postgres)
-O projeto foi desenvolvido utilizando o postgres, então para que o projeto funcione é necessário fazer a instalação do postgres. Para isso, faça o download pelo link (https://www.postgresql.org/download/). Escolha seu SO e prossiga com a instalação. 
+O projeto foi desenvolvido utilizando o postgres, então para que o projeto funcione é necessário fazer a instalação do postgres. Para isso, faça o download pelo [link](https://www.postgresql.org/download/). Escolha seu SO e prossiga com a instalação. 
 
 Observação: A versão do PostgreSQL instalada para o projeto foi a 13.2. Caso prefira, também realize a instalação do pgAdmin durante o processo de instalação do postgres.
 
 ## Clonando repositório do Git
-Para que seja possível fazer o clone do projeto é necessário que você tenha o Git configurado no seu computador. Como sugestão para instalação do Git, seguir dados passados no link (https://www.atlassian.com/br/git/tutorials/install-git).
+Para que seja possível fazer o clone do projeto é necessário que você tenha o Git configurado no seu computador. Como sugestão para instalação do Git, seguir dados passados no [link](https://www.atlassian.com/br/git/tutorials/install-git).
 
 Para clonar o projeto é possível utilizar dois métodos:
-- HTTPS: https://github.com/Aleika/registro-epidemiologico.git
-- SSH: git@github.com:Aleika/registro-epidemiologico.git (para usar esse método é necessário configurar as chaves SSH no git.)
+- HTTPS: `https://github.com/Aleika/registro-epidemiologico.git`
+- SSH: `git@github.com:Aleika/registro-epidemiologico.git` (para usar esse método é necessário configurar as chaves SSH no git.)
 
 ## Configurando dependências do projeto
 Após realizar o clone, entre na pasta doprojeto e execute o comando para que as dependências sejam instaladas:
@@ -74,3 +74,12 @@ Os seeders contém alguns dados que foram implementados para serem inseridos no 
 Por fim, para executar o servidor localmente é necessário apenas executar o comando:
 
 ```php artisan serve```
+
+## Acessando a documentação da API
+Para visualizar a documentação da API, basta acessar o caminho pelo brownser (após subir o servidor local): 
+
+```http://localhost:8000/api/documentation```
+
+# Extra
+Para testar a API utilizei o Insomnia. Caso deseje utiliza-lo também, faça o download pelo [link](https://insomnia.rest/).
+ 
