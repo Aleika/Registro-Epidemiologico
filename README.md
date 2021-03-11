@@ -67,8 +67,6 @@ Para a criação das tabelas e inserção de dados via migration, execute o coma
 ## Executar seeders
 Os seeders contém alguns dados que foram implementados para serem inseridos no banco no momento em que são chamados. Execute os seguintes seeders na ordem exibida:
 
-```php artisan db:seed --class=RegioesSeeder```
-
 ```php artisan db:seed --class=FaixaEtariaSeeder```
 
 ## Executar servidor localmente
