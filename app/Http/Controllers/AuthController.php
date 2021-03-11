@@ -43,10 +43,7 @@ class AuthController extends Controller
      *          @OA\MediaType(
      *              mediaType="application/json",
      *              @OA\Schema(
-     *                  @OA\Property(property="token",type="string",example="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.
-     *                  eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYxNTMwODQ3OCwi
-     *                  ZXhwIjoxNjE1Mzk0ODc4LCJuYmYiOjE2MTUzMDg0NzgsImp0aSI6Ikdwb3Y4UDZhRWszNnJwT24iLCJzdWIiOjMsInBy
-     *                  diI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.dQ6TIYmYo25Neveic_BB6-xEno-2BQ1n2pca0oJfyDs"),
+     *                  @OA\Property(property="token",type="string",example="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYxNTMwODQ3OCwiZXhwIjoxNjE1Mzk0ODc4LCJuYmYiOjE2MTUzMDg0NzgsImp0aSI6Ikdwb3Y4UDZhRWszNnJwT24iLCJzdWIiOjMsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.dQ6TIYmYo25Neveic_BB6-xEno-2BQ1n2pca0oJfyDs"),
      *                  @OA\Property(property="token_type",type="string",example="bearer"),
      *                  @OA\Property(property="token_validity",type="integer",example="86400"),
      *              ),
@@ -215,10 +212,7 @@ class AuthController extends Controller
      *          @OA\MediaType(
      *              mediaType="application/json",
      *              @OA\Schema(
-     *                  @OA\Property(property="token",type="string",example="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.
-     *                  eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYxNTMwODQ3OCwi
-     *                  ZXhwIjoxNjE1Mzk0ODc4LCJuYmYiOjE2MTUzMDg0NzgsImp0aSI6Ikdwb3Y4UDZhRWszNnJwT24iLCJzdWIiOjMsInBy
-     *                  diI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.dQ6TIYmYo25Neveic_BB6-xEno-2BQ1n2pca0oJfyDs"),
+     *                  @OA\Property(property="token",type="string",example="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYxNTMwODQ3OCwiZXhwIjoxNjE1Mzk0ODc4LCJuYmYiOjE2MTUzMDg0NzgsImp0aSI6Ikdwb3Y4UDZhRWszNnJwT24iLCJzdWIiOjMsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.dQ6TIYmYo25Neveic_BB6-xEno-2BQ1n2pca0oJfyDs"),
      *                  @OA\Property(property="token_type",type="string",example="bearer"),
      *                  @OA\Property(property="token_validity",type="integer",example="86400"),
      *              ),
