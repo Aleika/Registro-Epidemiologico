@@ -69,6 +69,8 @@ Os seeders contém alguns dados que foram implementados para serem inseridos no 
 
 ```php artisan db:seed --class=FaixaEtariaSeeder```
 
+```php artisan db:seed --class=UserSeeder```
+
 ## Executar servidor localmente
 Por fim, para executar o servidor localmente é necessário apenas executar o comando:
 
