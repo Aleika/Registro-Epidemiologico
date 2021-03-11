@@ -1,4 +1,5 @@
 # Api Registro Epidemiológico de Doenças Raras
+É uma aplicação RESTful que consiste em um registro epidemiológico para pacientes com doenças raras a servir aplicações que podem ser outros sistemas ou uma interface de usuário.
 
 ## Diagrama de Entidade Relacionamento
 <img src="https://github.com/Aleika/registro-epidemiologico/blob/main/database/diagrama_entidade_relacionamento.PNG">
