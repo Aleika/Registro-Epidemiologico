@@ -1,63 +1,76 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Api Registro Epidemiológico de Doenças Raras
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Diagrama de Entidade Relacionamento
+<img src="https://github.com/Aleika/registro-epidemiologico/blob/main/database/diagrama_entidade_relacionamento.PNG">
 
-## About Laravel
+## Instruções de instalação
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Instalação do PHP 8.0.2
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Para a instalação do PHP, vamos utilizar o pacote XAMPP
+- [Fazer download do XAMPP](https://www.apachefriends.org/download.html).
+Escolha a opção de download para a versão PHP 8.0.2 e para seu SO.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Instalação do Composer
+Para instalar o Composer, acesse o link abaixo e realize a instalação de acordo com sua preferência e SO.
+- [Fazer download do Composer](https://getcomposer.org/download/).
 
-## Learning Laravel
+Observações: 
+- No processo de instalação do Composer, caso necessário, selecione o XAMPP.
+- Caso seu SO seja Windows: para ativar o Composer é necessário executar o Prompt de Comando como administrado e rodar o comando `php composer.phar`.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Instalação do banco de dados (postgres)
+O projeto foi desenvolvido utilizando o postgres, então para que o projeto funcione é necessário fazer a instalação do postgres. Para isso, faça o download pelo link (https://www.postgresql.org/download/). Escolha seu SO e prossiga com a instalação. 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Observação: A versão do PostgreSQL instalada para o projeto foi a 13.2. Caso prefira, também realize a instalação do pgAdmin durante o processo de instalação do postgres.
 
-## Laravel Sponsors
+## Clonando repositório do Git
+Para que seja possível fazer o clone do projeto é necessário que você tenha o Git configurado no seu computador. Como sugestão para instalação do Git, seguir dados passados no link (https://www.atlassian.com/br/git/tutorials/install-git).
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Para clonar o projeto é possível utilizar dois métodos:
+- HTTPS: https://github.com/Aleika/registro-epidemiologico.git
+- SSH: git@github.com:Aleika/registro-epidemiologico.git (para usar esse método é necessário configurar as chaves SSH no git.)
 
-### Premium Partners
+## Configurando dependências do projeto
+Após realizar o clone, entre na pasta doprojeto e execute o comando para que as dependências sejam instaladas:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+```composer install```
 
-## Contributing
+## Configurando variáveis de ambiente
+Copiar o arquivo `.env.example` para o arquivo `.env`. Após isso, gerar a chave de aplicação com o comando `php artisan key:generate`.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Configurando os dados para acesso ao banco de dados
+No arquivo `.env`, substitua o seguinte trecho:
 
-## Code of Conduct
+```
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=registro_epidemiologico
+DB_USERNAME= NOME_USUARIO
+DB_PASSWORD= SENHA
+```
+Veja que para que funcione, é necessário que seja criado um banco com o nome 'registro_epidemiologico' e é necessário informar o nome do usuário e senha que foram criados por você durante a instalação do postgres. Caso tenha alguma dessas informações configurada de forma diferente, basta substituir. O importante é que as informações correspondam ao servidor de banco de dados que você configurou anteriormente.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Observação: Abra o arquivo xampp/php/php.init e descomente as linhas:
 
-## Security Vulnerabilities
+```extension=pdo_pgsql```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```extension=pgsql```
 
-## License
+## Realizar a migração dos dados
+Para a criação das tabelas e inserção de dados via migration, execute o comando:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# registro-epidemiologico-api
+```php artisan migrate```
+
+## Executar seeders
+Os seeders contém alguns dados que foram implementados para serem inseridos no banco no momento em que são chamados. Execute os seguintes seeders na ordem exibida:
+
+```php artisan db:seed --class=RegioesSeeder```
+
+```php artisan db:seed --class=FaixaEtariaSeeder```
+
+## Executar servidor localmente
+Por fim, para executar o servidor localmente é necessário apenas executar o comando:
+
+```php artisan serve```
