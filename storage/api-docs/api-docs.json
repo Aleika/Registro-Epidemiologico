@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "API Registro Epidemiologico de Doenças Raras",
-        "description": "Aplicação REST que consiste em um registro epidemiológico para pacientes com doenças raras a\n    servir aplicações que podem ser outros sistemas ou uma interface de usuário.",
+        "description": "API RESTful para o registro epidemiológico de pacientes com doenças raras a\n    servir aplicações que podem ser outros sistemas ou uma interface de usuário. A API consiste em requisições que precisam de autenticação,\n    destinadas aos usuários que utilizam do módulo de gestão, para restringir as operações de CRUD do sistema aos usuário autenticados. Além disso, a API também conta\n    com requisições livres de autenticação, que estarão disponíveis para serem utilizadas pelo módulo de transparência, que é aberto ao público. A autenticação\n    é feita com 'Bearer authentication', também conhecido como 'token authentication', ou seja, para as requisições que necessitam de autenticação é necessário\n    passar a informação do token.",
         "version": "1.0"
     },
     "servers": [
@@ -705,7 +705,7 @@
                 }
             }
         },
-        "/doenca": {
+        "/doenca?token=": {
             "get": {
                 "tags": [
                     "doença"
@@ -804,7 +804,7 @@
                 ]
             }
         },
-        "/doenca/{doenca_id}": {
+        "/doenca/{doenca_id}?token=": {
             "get": {
                 "tags": [
                     "doença"
@@ -988,7 +988,7 @@
                 ]
             }
         },
-        "/faixaetaria": {
+        "/faixaetaria?token=": {
             "get": {
                 "tags": [
                     "faixa etária"
@@ -1025,10 +1025,15 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
-        "/municipio": {
+        "/municipio?token=": {
             "get": {
                 "tags": [
                     "município"
@@ -1212,7 +1217,7 @@
                 ]
             }
         },
-        "/municipio/{municipio_id}": {
+        "/municipio/{municipio_id}?token=": {
             "get": {
                 "tags": [
                     "município"
@@ -1451,7 +1456,7 @@
                 ]
             }
         },
-        "/paciente": {
+        "/paciente?token=": {
             "get": {
                 "tags": [
                     "paciente"
@@ -1795,7 +1800,7 @@
                 ]
             }
         },
-        "/paciente/{paciente_id}": {
+        "/paciente/{paciente_id}?token=": {
             "get": {
                 "tags": [
                     "paciente"
@@ -2226,7 +2231,7 @@
                 ]
             }
         },
-        "/pesquisador": {
+        "/pesquisador?token=": {
             "get": {
                 "tags": [
                     "pesquisador"
@@ -2547,7 +2552,7 @@
                 ]
             }
         },
-        "/pesquisador/{pesquisador_id}": {
+        "/pesquisador/{pesquisador_id}?token=": {
             "get": {
                 "tags": [
                     "pesquisador"
@@ -2984,7 +2989,7 @@
                 ]
             }
         },
-        "/regiao": {
+        "/regiao?token=": {
             "get": {
                 "tags": [
                     "região"
@@ -3017,10 +3022,15 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
-        "/registro_paciente_doenca": {
+        "/registro_paciente_doenca?token=": {
             "get": {
                 "tags": [
                     "registro de doenças do paciente"
@@ -3273,7 +3283,7 @@
                 ]
             }
         },
-        "/registro_paciente_doenca/paciente/{paciente_id}": {
+        "/registro_paciente_doenca/paciente/{paciente_id}?token=": {
             "get": {
                 "tags": [
                     "registro de doenças do paciente"
@@ -3386,7 +3396,7 @@
                 ]
             }
         },
-        "/registro_paciente_doenca/paciente/{paciente_id}/doenca/{doenca_id}": {
+        "/registro_paciente_doenca/paciente/{paciente_id}/doenca/{doenca_id}?token=": {
             "get": {
                 "tags": [
                     "registro de doenças do paciente"
@@ -3661,7 +3671,7 @@
                 ]
             }
         },
-        "/uf": {
+        "/uf?token=": {
             "get": {
                 "tags": [
                     "unidade federativa"
@@ -3792,7 +3802,7 @@
                 ]
             }
         },
-        "/uf/{uf_id}": {
+        "/uf/{uf_id}?token=": {
             "get": {
                 "tags": [
                     "unidade federativa"
@@ -3878,7 +3888,7 @@
                 ]
             }
         },
-        "/uf/{if_id}": {
+        "/uf/{if_id}?token=": {
             "put": {
                 "tags": [
                     "unidade federativa"
@@ -4043,7 +4053,7 @@
                 }
             }
         },
-        "/auth/register": {
+        "/auth/register?token=": {
             "post": {
                 "tags": [
                     "autenticação"
@@ -4127,7 +4137,7 @@
                 ]
             }
         },
-        "/auth/logout": {
+        "/auth/logout?token=": {
             "post": {
                 "tags": [
                     "autenticação"
@@ -4160,7 +4170,7 @@
                 ]
             }
         },
-        "/auth/profle": {
+        "/auth/profile?token=": {
             "get": {
                 "tags": [
                     "autenticação"
@@ -4209,7 +4219,7 @@
                 ]
             }
         },
-        "/auth/refresh": {
+        "/auth/refresh?token=": {
             "post": {
                 "tags": [
                     "autenticação"

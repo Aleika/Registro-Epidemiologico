@@ -15,7 +15,7 @@ class MunicipioController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/municipio",
+     *     path="/municipio?token=",
      *     tags={"município"},
      *     summary="Lista de municipios",
      *     description="Retorna uma lista com os municipios cadastrados.",
@@ -91,7 +91,7 @@ class MunicipioController extends Controller
 
     /**
      * @OA\Post(
-     *     path="/municipio",
+     *     path="/municipio?token=",
      *     tags={"município"},
      *     summary="Cadastrar município",
      *     description="Cadastra município. Retorna o município cadastrado.",
@@ -170,7 +170,7 @@ class MunicipioController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/municipio/{municipio_id}",
+     *     path="/municipio/{municipio_id}?token=",
      *     tags={"município"},
      *     summary="Listar município",
      *     description="Retorna os dados do município cujo id é passado pela url.",
@@ -262,7 +262,7 @@ class MunicipioController extends Controller
 
     /**
      * @OA\Put(
-     *     path="/municipio/{municipio_id}",
+     *     path="/municipio/{municipio_id}?token=",
      *     tags={"município"},
      *     summary="Atualizar município",
      *     description="Atualiza dados do município cujo id é passado na url. Retorna o município com os dados atualizados.",
@@ -349,7 +349,7 @@ class MunicipioController extends Controller
 
     /**
      * @OA\Delete(
-     *     path="/municipio/{municipio_id}",
+     *     path="/municipio/{municipio_id}?token=",
      *     summary="Remover município",
      *     description="Remove o município cujo id é passado pela url.",
      *     operationId="destroy",

@@ -86,6 +86,9 @@ Route::group([
         Route::delete('/paciente/{paciente_id}/doenca/{doenca_id}', [RegistroPacienteDoencasController::class, 'destroy']);
         Route::put('/paciente/{paciente_id}/doenca/{doenca_id}', [RegistroPacienteDoencasController::class, 'update']);
     });
+
+    Route::get('/regiao', [RegiaoController::class, 'index']);
+    Route::get('/faixaetaria', [FaixaEtariaController::class, 'index']);
 });
 
 Route::prefix('/modulo_transparencia')->group( function (){
@@ -102,6 +105,4 @@ Route::prefix('/modulo_transparencia')->group( function (){
     });
 });
 
-Route::get('/regiao', [RegiaoController::class, 'index']);
-Route::get('/faixaetaria', [FaixaEtariaController::class, 'index']);
 

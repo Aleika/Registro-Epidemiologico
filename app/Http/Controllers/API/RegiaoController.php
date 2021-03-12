@@ -7,13 +7,20 @@ use App\Models\Regiao;
 
 class RegiaoController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware('jwt.auth');
+    }
+
     /**
      * @OA\Get(
-     *     path="/regiao",
+     *     path="/regiao?token=",
      *     tags={"região"},
      *     summary="Lista de regiões",
      *     description="Retorna uma lista com as regiões inseridas.",
      *     operationId="index",
+     *     security={{"bearerAuth":{}}},
+
      * @OA\Response(
      *          response=200,
      *          description="Operação realizada com sucesso",

@@ -14,7 +14,7 @@ class DoencaController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/doenca",
+     *     path="/doenca?token=",
      *     tags={"doença"},
      *     summary="Lista de doenças",
      *     description="Retorna uma lista com as doenças cadastradas.",
@@ -48,7 +48,7 @@ class DoencaController extends Controller
 
     /**
      * @OA\Post(
-     *     path="/doenca",
+     *     path="/doenca?token=",
      *     tags={"doença"},
      *     summary="Cadastrar doença",
      *     description="Cadastra doença. Retorna a doença cadastrada.",
@@ -125,7 +125,7 @@ class DoencaController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/doenca/{doenca_id}",
+     *     path="/doenca/{doenca_id}?token=",
      *     tags={"doença"},
      *     summary="Listar doença",
      *     description="Retorna dados da doença cujo id é passado pela url.",
@@ -193,7 +193,7 @@ class DoencaController extends Controller
 
     /**
      * @OA\Put(
-     *     path="/doenca/{doenca_id}",
+     *     path="/doenca/{doenca_id}?token=",
      *     tags={"doença"},
      *     summary="Atualizar doença",
      *     description="Atualiza dados da doença cujo id é passado na url. Retorna a doença com os dados atualizados.",
@@ -277,7 +277,7 @@ class DoencaController extends Controller
 
     /**
      * @OA\Delete(
-     *     path="/doenca/{doenca_id}",
+     *     path="/doenca/{doenca_id}?token=",
      *     summary="Remover doença",
      *     description="Remove a doença cujo id é passado pela url.",
      *     operationId="destroy",

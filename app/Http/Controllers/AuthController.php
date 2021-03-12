@@ -77,7 +77,7 @@ class AuthController extends Controller
 
     /**
      * @OA\Post(
-     *     path="/auth/register",
+     *     path="/auth/register?token=",
      *     tags={"autenticação"},
      *     summary="Cadastra novo usuário",
      *     description="Realiza o cadastro do usuário e retorna os dados cadastrados.",
@@ -141,7 +141,7 @@ class AuthController extends Controller
 
     /**
      * @OA\Post(
-     *     path="/auth/logout",
+     *     path="/auth/logout?token=",
      *     tags={"autenticação"},
      *     summary="Faz o logout do usuário",
      *     description="Realiza o logout do usuário.",
@@ -168,7 +168,7 @@ class AuthController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/auth/profle",
+     *     path="/auth/profile?token=",
      *     tags={"autenticação"},
      *     summary="Retorna usuário.",
      *     description="Retorna os dados do susuário logado.",
@@ -196,7 +196,7 @@ class AuthController extends Controller
 
     /**
      * @OA\Post(
-     *     path="/auth/refresh",
+     *     path="/auth/refresh?token=",
      *     tags={"autenticação"},
      *     summary="Atualiza token",
      *     description="Atualiza os dados de acesso do usuário logado. Retorna os dados de acesso.",

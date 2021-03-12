@@ -14,7 +14,7 @@ class UFController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/uf",
+     *     path="/uf?token=",
      *     tags={"unidade federativa"},
      *     summary="Lista de UFs",
      *     description="Retorna uma lista com as unidades federativas cadastradas.",
@@ -82,7 +82,7 @@ class UFController extends Controller
 
     /**
      * @OA\Post(
-     *     path="/uf",
+     *     path="/uf?token=",
      *     tags={"unidade federativa"},
      *     summary="Cadastrar unidade UF",
      *     description="Cadastra UF. Retorna a UF cadastrada.",
@@ -171,7 +171,7 @@ class UFController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/uf/{uf_id}",
+     *     path="/uf/{uf_id}?token=",
      *     tags={"unidade federativa"},
      *     summary="Listar UF",
      *     description="Retorna a UF cujo id foi passado pela url.",
@@ -252,7 +252,7 @@ class UFController extends Controller
 
     /**
      * @OA\Put(
-     *     path="/uf/{if_id}",
+     *     path="/uf/{if_id}?token=",
      *     tags={"unidade federativa"},
      *     summary="Atualiza a UF cujo id é passado pela url.",
      *     description="Atualiza a UF. Retorna a UF atualizada.",
@@ -343,7 +343,7 @@ class UFController extends Controller
 
     /**
      * @OA\Delete (
-     *     path="/uf/{if_id}",
+     *     path="/uf/{if_id}?token=",
      *     tags={"unidade federativa"},
      *     summary="Deleta UF",
      *     description="Remove a UF cujo id é passado pela url.",

@@ -14,7 +14,7 @@ class RegistroPacienteDoencasController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/registro_paciente_doenca",
+     *     path="/registro_paciente_doenca?token=",
      *     tags={"registro de doenças do paciente"},
      *     summary="Lista de registros",
      *     description="Lista os registros das doenças dos pacientes.",
@@ -76,7 +76,7 @@ class RegistroPacienteDoencasController extends Controller
 
     /**
      * @OA\Post(
-     *     path="/registro_paciente_doenca",
+     *     path="/registro_paciente_doenca?token=",
      *     tags={"registro de doenças do paciente"},
      *     summary="Salvar registro que relaciona paciente à doença",
      *     description="Cadastra o registro. Retorna o registro cadastrado.",
@@ -146,7 +146,7 @@ class RegistroPacienteDoencasController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/registro_paciente_doenca/paciente/{paciente_id}",
+     *     path="/registro_paciente_doenca/paciente/{paciente_id}?token=",
      *     tags={"registro de doenças do paciente"},
      *     summary="Listar doenças do paciente",
      *     description="Lista as doenças do paciente cujo id foi passado pela url.",
@@ -216,7 +216,7 @@ class RegistroPacienteDoencasController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/registro_paciente_doenca/paciente/{paciente_id}/doenca/{doenca_id}",
+     *     path="/registro_paciente_doenca/paciente/{paciente_id}/doenca/{doenca_id}?token=",
      *     tags={"registro de doenças do paciente"},
      *     summary="Lista registro da relação entre doença e paciente",
      *     description="Lista os dados do registro a partir do id do paciente e do id da doenca ambos passados pela url.",
@@ -283,7 +283,7 @@ class RegistroPacienteDoencasController extends Controller
 
     /**
      * @OA\Put(
-     *     path="/registro_paciente_doenca/paciente/{paciente_id}/doenca/{doenca_id}",
+     *     path="/registro_paciente_doenca/paciente/{paciente_id}/doenca/{doenca_id}?token=",
      *     tags={"registro de doenças do paciente"},
      *     summary="Atualizar registro da doença do paciente",
      *     description="Atualiza o registro a partir do id do paciente e o id da doença passados pela url. Retorna registro atualizado.",
@@ -365,7 +365,7 @@ class RegistroPacienteDoencasController extends Controller
 
     /**
      * @OA\Delete (
-     *     path="/registro_paciente_doenca/paciente/{paciente_id}/doenca/{doenca_id}",
+     *     path="/registro_paciente_doenca/paciente/{paciente_id}/doenca/{doenca_id}?token=",
      *     tags={"registro de doenças do paciente"},
      *     summary="Deletar registro da doença do paciente",
      *     description="Deleta o registro a partir do id do paciente e o id da doença passados pela url.",

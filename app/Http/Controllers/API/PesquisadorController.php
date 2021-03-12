@@ -15,7 +15,7 @@ class PesquisadorController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/pesquisador",
+     *     path="/pesquisador?token=",
      *     tags={"pesquisador"},
      *     summary="Lista de pesquisadores",
      *     description="Retorna uma lista com os pesquisadores cadastrados.",
@@ -96,7 +96,7 @@ class PesquisadorController extends Controller
 
     /**
      * @OA\Post(
-     *     path="/pesquisador",
+     *     path="/pesquisador?token=",
      *     tags={"pesquisador"},
      *     summary="Cadastrar pesquisador",
      *     description="Cadastra pesquisador. Retorna o pesquisador cadastrado.",
@@ -179,7 +179,7 @@ class PesquisadorController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/pesquisador/{pesquisador_id}",
+     *     path="/pesquisador/{pesquisador_id}?token=",
      *     tags={"pesquisador"},
      *     summary="Listar pesquisador",
      *     description="Retorna os dados do pesquisador cujo id foi passado pela url.",
@@ -275,7 +275,7 @@ class PesquisadorController extends Controller
 
     /**
      * @OA\Put(
-     *     path="/pesquisador/{pesquisador_id}",
+     *     path="/pesquisador/{pesquisador_id}?token=",
      *     tags={"pesquisador"},
      *     summary="Atualizar pesquisador",
      *     description="Atualiza os dados do pesquisador cujo id foi passado pela url. Retorna o pesquisador atualizado.",
@@ -390,7 +390,7 @@ class PesquisadorController extends Controller
 
     /**
      * @OA\Delete (
-     *     path="/pesquisador/{pesquisador_id}",
+     *     path="/pesquisador/{pesquisador_id}?token=",
      *     tags={"pesquisador"},
      *     summary="Remover pesquisador",
      *     description="Remover o pesquisador cujo id foi passado pela url.",

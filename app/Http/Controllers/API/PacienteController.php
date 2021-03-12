@@ -18,7 +18,7 @@ class PacienteController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/paciente",
+     *     path="/paciente?token=",
      *     tags={"paciente"},
      *     summary="Lista de pacientes",
      *     description="Retorna uma lista com os pacientes cadastrados.",
@@ -111,7 +111,7 @@ class PacienteController extends Controller
 
     /**
      * @OA\Post(
-     *     path="/paciente",
+     *     path="/paciente?token=",
      *     tags={"paciente"},
      *     summary="Cadastrar paciente",
      *     description="Cadastra paciente. Retorna o paciente cadastrado.",
@@ -203,7 +203,7 @@ class PacienteController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/paciente/{paciente_id}",
+     *     path="/paciente/{paciente_id}?token=",
      *     tags={"paciente"},
      *     summary="Listar paciente",
      *     description="Retorna os dados do paciente cujo id foi passado na url.",
@@ -333,7 +333,7 @@ class PacienteController extends Controller
 
     /**
      * @OA\Put (
-     *     path="/paciente/{paciente_id}",
+     *     path="/paciente/{paciente_id}?token=",
      *     tags={"paciente"},
      *     summary="Atualizar paciente",
      *     description="Atualiza os dados do paciente. Retorna o paciente atualizado.",
@@ -473,7 +473,7 @@ class PacienteController extends Controller
 
     /**
      * @OA\Delete (
-     *     path="/paciente/{paciente_id}",
+     *     path="/paciente/{paciente_id}?token=",
      *     tags={"paciente"},
      *     summary="Deletar paciente",
      *     description="Deleta o paciente cujo id foi passado pela url.",

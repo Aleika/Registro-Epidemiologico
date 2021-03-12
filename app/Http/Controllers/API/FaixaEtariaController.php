@@ -7,14 +7,19 @@ use App\Models\FaixaEtaria;
 
 class FaixaEtariaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('jwt.auth');
+    }
 
     /**
      * @OA\Get(
-     *     path="/faixaetaria",
+     *     path="/faixaetaria?token=",
      *     tags={"faixa etária"},
      *     summary="Lista de faixas etárias",
      *     description="Retorna uma lista com as faixas etárias inseridas.",
      *     operationId="index",
+     *     security={{"bearerAuth":{}}},
      * @OA\Response(
      *          response=200,
      *          description="Operação realizada com sucesso",
