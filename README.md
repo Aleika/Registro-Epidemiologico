@@ -2,7 +2,7 @@
 É uma aplicação RESTful que consiste em um registro epidemiológico para pacientes com doenças raras a servir aplicações que podem ser outros sistemas ou uma interface de usuário.
 
 ## Diagrama de Entidade Relacionamento
-<img src="https://github.com/Aleika/registro-epidemiologico/blob/main/database/diagrama_entidade_relacionamento.PNG">
+<img src="https://github.com/Aleika/registro-epidemiologico/blob/main/database/registro_epidemiologico_diagrama.svg">
 
 ## Instruções de instalação
 
@@ -65,11 +65,15 @@ Para a criação das tabelas e inserção de dados via migration, execute o coma
 ```php artisan migrate```
 
 ## Executar seeders
-Os seeders contém alguns dados para serem inseridos no banco no momento em que são chamados. Execute os seguintes seeders na ordem exibida:
+Os seeders contém dados para serem inseridos no banco no momento em que são chamados. Execute os seguintes seeders na ordem exibida:
 
 ```php artisan db:seed --class=FaixaEtariaSeeder```
 
 ```php artisan db:seed --class=UserSeeder```
+
+Caso deseje inserir dados referentes à município, paciente, pesquisador e registro de doenças do paciente - montando alguns cenários iniciais - execute o seeder:
+
+```php artisan db:seed --class=PopulandoTabelasSeeder```
 
 ## Executar servidor localmente
 Por fim, para executar o servidor localmente é necessário apenas executar o comando:
@@ -81,7 +85,7 @@ Para visualizar a documentação da API, basta acessar o caminho pelo brownser (
 
 ```http://localhost:8000/api/documentation```
 
-Observação: Para conseguir utilizar as funcionalidades do módulo de gestão, que necessitam que o usuário esteja autenticado, acesse primeiramente `http://127.0.0.1:8000/api/auth/login` passando no corpo da resquet o email 'admin@email.com' e a senha '123456' (qualquer dúvida consulte a documentação da api). Essas informações foram inseridas via seeder do usuário. Apenas após fazer login no sistema, o usuário terá o token que liberará o acesso às funcionalidades que necessitam de permissão. É importante destacar que, de acordo com o que foi implemetado, apenas esse usuário 'administrador' poderá fazer o registro de outros novos usuários. Isso impede que qualquer pessoa com o link para o registro no sistema, possa realizar cadastro o cadastro.
+Observação: Para conseguir utilizar as funcionalidades do módulo de gestão, que necessitam que o usuário esteja autenticado, acesse primeiramente `http://127.0.0.1:8000/api/auth/login` passando no corpo da resquet o email 'admin@email.com' e a senha '123456' (qualquer dúvida consulte a documentação da api). Essas informações foram inseridas via seeder do usuário. Apenas após fazer login no sistema, o usuário terá o token que liberará o acesso às funcionalidades que necessitam de permissão. É importante destacar que, de acordo com o que foi implemetado, apenas esse usuário 'administrador' poderá fazer o registro de outros novos usuários. Isso impede que qualquer pessoa com o link possa realizar novos cadastros.
 
 # Extra
 Para testar a API utilizei o Insomnia. Caso deseje utiliza-lo também, faça o download pelo [link](https://insomnia.rest/). 
