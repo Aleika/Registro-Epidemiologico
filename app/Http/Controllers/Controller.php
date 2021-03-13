@@ -20,8 +20,8 @@ class Controller extends BaseController
     passar a informação do token.")
      *
      * @OA\Server(
-     *  url="localhost:8000/registro_epidemiologico/api",
-     *  description=""
+     *  url="http://127.0.0.1:8000/api",
+     *  description="Caminho base para acesso"
      * )
      */
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
